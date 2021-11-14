@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="test.java.postman.AccountTests" time="4.58" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java\target\test-classes;F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java\target\classes;C:\Users\Sune4ka\.m2\repository\io\rest-assured\rest-assured\4.4.0\rest-assured-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy\3.0.8\groovy-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy-xml\3.0.8\groovy-xml-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Sune4ka\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Sune4ka\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Sune4ka\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Sune4ka\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\json-path\4.4.0\json-path-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy-json\3.0.8\groovy-json-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\rest-assured-common\4.4.0\rest-assured-common-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\xml-path\4.4.0\xml-path-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Sune4ka\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\Sune4ka\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\Sune4ka\.m2\repository\com\sun\xml\bind\jaxb-impl\2.3.3\jaxb-impl-2.3.3.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Sune4ka\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\Sune4ka\.m2\repository\commons-io\commons-io\2.8.0\commons-io-2.8.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-java-commons\2.14.0\allure-java-commons-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-model\2.14.0\allure-model-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.12.3\jackson-databind-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.12.3\jackson-annotations-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.12.3\jackson-core-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\org\apache\tika\tika-core\1.26\tika-core-1.26.jar;C:\Users\Sune4ka\.m2\repository\org\jooq\joor-java-8\0.9.14\joor-java-8-0.9.14.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-junit5\2.14.0\allure-junit5-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-junit-platform\2.14.0\allure-junit-platform-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-test-filter\2.14.0\allure-test-filter-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-launcher\1.7.2\junit-platform-launcher-1.7.2.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-rest-assured\2.14.0\allure-rest-assured-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-attachments\2.14.0\allure-attachments-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;C:\Users\Sune4ka\.m2\repository\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_301\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\Sune4ka\AppData\Local\Temp\surefire5167407761387684060\surefirebooter862363218527088202.jar C:\Users\Sune4ka\AppData\Local\Temp\surefire5167407761387684060 2021-11-11T00-05-44_190-jvmRun1 surefire2091719589830107646tmp surefire_08476295198778047195tmp"/>
+    <property name="surefire.test.class.path" value="F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java\target\test-classes;F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java\target\classes;C:\Users\Sune4ka\.m2\repository\io\rest-assured\rest-assured\4.4.0\rest-assured-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy\3.0.8\groovy-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy-xml\3.0.8\groovy-xml-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\Sune4ka\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Sune4ka\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\Sune4ka\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\Sune4ka\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\Sune4ka\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\json-path\4.4.0\json-path-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\codehaus\groovy\groovy-json\3.0.8\groovy-json-3.0.8.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\rest-assured-common\4.4.0\rest-assured-common-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\io\rest-assured\xml-path\4.4.0\xml-path-4.4.0.jar;C:\Users\Sune4ka\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\Sune4ka\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\Sune4ka\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\Sune4ka\.m2\repository\com\sun\xml\bind\jaxb-impl\2.3.3\jaxb-impl-2.3.3.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Sune4ka\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\Sune4ka\.m2\repository\commons-io\commons-io\2.8.0\commons-io-2.8.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-java-commons\2.14.0\allure-java-commons-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-model\2.14.0\allure-model-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.12.3\jackson-databind-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.12.3\jackson-annotations-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.12.3\jackson-core-2.12.3.jar;C:\Users\Sune4ka\.m2\repository\org\apache\tika\tika-core\1.26\tika-core-1.26.jar;C:\Users\Sune4ka\.m2\repository\org\jooq\joor-java-8\0.9.14\joor-java-8-0.9.14.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-junit5\2.14.0\allure-junit5-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-junit-platform\2.14.0\allure-junit-platform-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-test-filter\2.14.0\allure-test-filter-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\junit\platform\junit-platform-launcher\1.7.2\junit-platform-launcher-1.7.2.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-rest-assured\2.14.0\allure-rest-assured-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\io\qameta\allure\allure-attachments\2.14.0\allure-attachments-2.14.0.jar;C:\Users\Sune4ka\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;C:\Users\Sune4ka\.m2\repository\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="allure.results.directory" value="target/allure-results"/>
+    <property name="user.home" value="C:\Users\Sune4ka"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_301\jre"/>
+    <property name="basedir" value="F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Sune4ka\AppData\Local\Temp\surefire5167407761387684060\surefirebooter862363218527088202.jar;C:\Users\Sune4ka\.m2\repository/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_301\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_301\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_301\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_301-b09"/>
+    <property name="user.name" value="Sune4ka"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_301\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Sune4ka\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Sune4ka\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2021.2"/>
+    <property name="java.version" value="1.8.0_301"/>
+    <property name="user.dir" value="F:\GEEKBRAINS\3h.Automatization_testing\Testinng_backend_an_Java\HW_backend_java"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_301\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;G:\Программы\Brackets\command;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;F:\ОБУЧЕНИЕ GEEKBRAINS\3 четверть. Автоматизация тестирования\Java Core для тестировщиков\sqlite-tools-win32-x86-3360000;C:\Users\Sune4ka\AppData\Local\Microsoft\WindowsApps;G:\Программы\Microsoft VS Code\bin;C:\Users\Sune4ka\AppData\Local\atom\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.301-b09"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_301\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="getAccountInfoWithAssertionsInGivenTest" classname="test.java.postman.AccountTests" time="2.548">
+    <system-out><![CDATA[Request method:	GET
+Request URI:	https://api.imgur.com/3/account/AnnaSmotrova
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/json
+Access-Control-Expose-Headers: X-RateLimit-ClientLimit, X-RateLimit-ClientRemaining, X-RateLimit-UserLimit, X-RateLimit-UserRemaining, X-RateLimit-UserReset, Geo-City, Geo-Region, Geo-Metro-Code, Geo-Country-Code
+X-RateLimit-ClientLimit: 12500
+X-RateLimit-ClientRemaining: 12496
+X-RateLimit-UserLimit: 2000
+X-RateLimit-UserRemaining: 1971
+X-RateLimit-UserReset: 1636580028
+ETag: W/"eb75c2746e89eee2bb43baee2f8e837d21051ac8"
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Encoding: gzip
+Accept-Ranges: bytes
+Date: Wed, 10 Nov 2021 21:05:48 GMT
+X-Served-By: cache-bma1637-BMA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1636578349.724917,VS0,VE124
+Vary: Accept-Encoding
+access-control-allow-methods: GET, PUT, POST, PATCH, DELETE, OPTIONS
+Server: cat factory 1.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+X-Frame-Options: DENY
+Access-Control-Allow-Headers: Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, sessionCount, IMGURMWBETA, IMGURMWBETAOPTIN, X-expSNKPK127, X-Imgur-Defender-Bypass
+transfer-encoding: chunked
+
+{
+    "data": {
+        "id": 84578389,
+        "url": "AnnaSmotrova",
+        "bio": "system Electronics Handcrafted migration Dakota",
+        "avatar": "https://imgur.com/user/AnnaSmotrova/avatar?maxwidth=290",
+        "avatar_name": "default/A",
+        "cover": "https://imgur.com/user/AnnaSmotrova/cover?maxwidth=2560",
+        "cover_name": "default/1-space",
+        "reputation": 0,
+        "reputation_name": "Neutral",
+        "created": 1522257832,
+        "pro_expiration": false,
+        "user_follow": {
+            "status": false
+        },
+        "is_blocked": false
+    },
+    "success": true,
+    "status": 200
+}
+]]></system-out>
+  </testcase>
+  <testcase name="getAccountInfoTest" classname="test.java.postman.AccountTests" time="0.388"/>
+  <testcase name="getAccountInfoWithLoggingTest" classname="test.java.postman.AccountTests" time="0.552">
+    <system-out><![CDATA[Request method:	GET
+Request URI:	https://api.imgur.com/3/account/AnnaSmotrova
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/json
+Access-Control-Expose-Headers: X-RateLimit-ClientLimit, X-RateLimit-ClientRemaining, X-RateLimit-UserLimit, X-RateLimit-UserRemaining, X-RateLimit-UserReset, Geo-City, Geo-Region, Geo-Metro-Code, Geo-Country-Code
+X-RateLimit-ClientLimit: 12500
+X-RateLimit-ClientRemaining: 12494
+X-RateLimit-UserLimit: 2000
+X-RateLimit-UserRemaining: 1969
+X-RateLimit-UserReset: 1636580028
+ETag: W/"eb75c2746e89eee2bb43baee2f8e837d21051ac8"
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Encoding: gzip
+Accept-Ranges: bytes
+Date: Wed, 10 Nov 2021 21:05:50 GMT
+X-Served-By: cache-bma1656-BMA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1636578350.140978,VS0,VE314
+Vary: Accept-Encoding
+access-control-allow-methods: GET, PUT, POST, PATCH, DELETE, OPTIONS
+Server: cat factory 1.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+X-Frame-Options: DENY
+Access-Control-Allow-Headers: Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, sessionCount, IMGURMWBETA, IMGURMWBETAOPTIN, X-expSNKPK127, X-Imgur-Defender-Bypass
+transfer-encoding: chunked
+
+{
+    "data": {
+        "id": 84578389,
+        "url": "AnnaSmotrova",
+        "bio": "system Electronics Handcrafted migration Dakota",
+        "avatar": "https://imgur.com/user/AnnaSmotrova/avatar?maxwidth=290",
+        "avatar_name": "default/A",
+        "cover": "https://imgur.com/user/AnnaSmotrova/cover?maxwidth=2560",
+        "cover_name": "default/1-space",
+        "reputation": 0,
+        "reputation_name": "Neutral",
+        "created": 1522257832,
+        "pro_expiration": false,
+        "user_follow": {
+            "status": false
+        },
+        "is_blocked": false
+    },
+    "success": true,
+    "status": 200
+}
+]]></system-out>
+  </testcase>
+  <testcase name="getAccountInfoWithAssertionsAfterTest" classname="test.java.postman.AccountTests" time="0.599">
+    <system-out><![CDATA[Request method:	GET
+Request URI:	https://api.imgur.com/3/account/AnnaSmotrova
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/json
+Access-Control-Expose-Headers: X-RateLimit-ClientLimit, X-RateLimit-ClientRemaining, X-RateLimit-UserLimit, X-RateLimit-UserRemaining, X-RateLimit-UserReset, Geo-City, Geo-Region, Geo-Metro-Code, Geo-Country-Code
+X-RateLimit-ClientLimit: 12500
+X-RateLimit-ClientRemaining: 12493
+X-RateLimit-UserLimit: 2000
+X-RateLimit-UserRemaining: 1968
+X-RateLimit-UserReset: 1636580028
+ETag: W/"eb75c2746e89eee2bb43baee2f8e837d21051ac8"
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Encoding: gzip
+Accept-Ranges: bytes
+Date: Wed, 10 Nov 2021 21:05:51 GMT
+X-Served-By: cache-bma1654-BMA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1636578351.914276,VS0,VE131
+Vary: Accept-Encoding
+access-control-allow-methods: GET, PUT, POST, PATCH, DELETE, OPTIONS
+Server: cat factory 1.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+X-Frame-Options: DENY
+Access-Control-Allow-Headers: Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, sessionCount, IMGURMWBETA, IMGURMWBETAOPTIN, X-expSNKPK127, X-Imgur-Defender-Bypass
+transfer-encoding: chunked
+
+{
+    "data": {
+        "id": 84578389,
+        "url": "AnnaSmotrova",
+        "bio": "system Electronics Handcrafted migration Dakota",
+        "avatar": "https://imgur.com/user/AnnaSmotrova/avatar?maxwidth=290",
+        "avatar_name": "default/A",
+        "cover": "https://imgur.com/user/AnnaSmotrova/cover?maxwidth=2560",
+        "cover_name": "default/1-space",
+        "reputation": 0,
+        "reputation_name": "Neutral",
+        "created": 1522257832,
+        "pro_expiration": false,
+        "user_follow": {
+            "status": false
+        },
+        "is_blocked": false
+    },
+    "success": true,
+    "status": 200
+}
+]]></system-out>
+  </testcase>
+</testsuite>

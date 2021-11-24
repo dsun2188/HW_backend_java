@@ -1,30 +1,32 @@
 package test.java.postman;
 
 import io.qameta.allure.Story;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
-import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static test.java.Endpoints.GET_ACCOUNT;
+
 
 @Story("Account api tests")
 
 public class AccountTests extends BaseTest {
 
+
     @Test
     void getAccountInfoTest() {
-        given()
-                .header("Authorization", token)
-                .when()
-                .get("https://api.imgur.com/3/account/{username}", username)
-                .then()
-                .statusCode(200);
+        given(requestSpecificationWithAuth ,positiveResponseSpecification)
+//              .header("Authorization", token)
+//              .when()
+                .get("https://api.imgur.com/3/account/{username}", username);
+//              .then()
+//              .statusCode(200);
     }
     @Test
     void getAccountInfoWithLoggingTest() {
@@ -64,13 +66,13 @@ public class AccountTests extends BaseTest {
     @Test
     void getAccountInfoWithAssertionsAfterTest() {
         Response response = given()
-                .header("Authorization", token)
+                .header("Authorization", "Bearer 81ed217eee6d991be324edc8754a07e4ce686bb9")
                 .log()
                 .method()
                 .log()
                 .uri()
                 .when()
-                .get("https://api.imgur.com/3/account/{username}", username)
+                .get(GET_ACCOUNT, username)
                 .prettyPeek();
         assertThat(response.jsonPath().get("data.url"), equalTo(username));
     }

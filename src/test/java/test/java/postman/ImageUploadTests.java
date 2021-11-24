@@ -1,77 +1,135 @@
 package test.java.postman;
 
 import io.qameta.allure.Story;
-import io.restassured.response.Response;
-import org.apache.commons.io.FileUtils;
+import io.restassured.builder.MultiPartSpecBuilder;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.MultiPartSpecification;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import test.java.dto.PostImageResponse;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Base64;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNull.notNullValue;
+import static test.java.Endpoints.UPLOAD_IMAGE;
+
+
 
 @Story("Image api tests")
 
-public class ImageTests extends BaseTest {
+public class ImageUploadTests extends BaseTest {
+
+
 
     private final String PATH_TO_IMAGE = "src/test/resources/test-image.jpg";
     static String encodedFile;
     String uploadedImageId;
-    String getImageId;
-    String favoriteImageId;
+
+    MultiPartSpecification base64MultiPartSpec;
+    MultiPartSpecification multiPartSpecWithFile;
+
+    static RequestSpecification requestSpecificationWithAuthAndMultipartImage;
+    static RequestSpecification requestSpecificationWithAuthWithBase64;
+
+    private String imageId;
+
 
     @BeforeEach
     void beforeTest() {
-        byte[] byteArray = getFileContent();
+
+        byte[] byteArray = getFileContent(PATH_TO_IMAGE);
         encodedFile = Base64.getEncoder().encodeToString(byteArray);
-    }
 
+        base64MultiPartSpec = new MultiPartSpecBuilder(encodedFile)
+                .controlName("image")
+                .build();
 
-//    Не понимаю почему не работает....8 часов пыталась как то его запустить вместе с остальными скрытыми тестами...Готова пересдать дз, если покажите как запустить другие методы...
-//
-//    @DisplayName("Get Image")
-//
-//    @Test
-//    void GetImage() {
-//        getImageId = given()
-//                .headers("Authorization", token)
-//                .expect()
-//                .statusCode(200)
-//                .when()
-//                .get("https://api.imgur.com/3/image/{imageHash}")
-//                .prettyPeek()
-//                .then()
-//                .extract()
-//                .response()
-//                .jsonPath()
-//                .getString("");
-//    }
+        multiPartSpecWithFile = new MultiPartSpecBuilder(new File("src/test/resources/test-image.jpg"))
+                .controlName("image")
+                .build();
 
-    @DisplayName("Загрузка файла в формате base64")
+        requestSpecificationWithAuthAndMultipartImage = new RequestSpecBuilder()
+                .addHeader("Authorization", token)
+                .addFormParam("title", "Picture")
+                .addFormParam("type", "gif")
+                .addMultiPart(multiPartSpecWithFile)
+                .build();
 
-    @Test
-    void uploadFileTest() {
-        uploadedImageId = given()
-                .headers("Authorization", token)
-                .multiPart("image", encodedFile)
-                .expect()
-                .body("success", is(true))
-                .body("data.id", is(notNullValue()))
-                .when()
-                .post("https://api.imgur.com/3/image")
+        requestSpecificationWithAuthWithBase64 = new RequestSpecBuilder()
+                .addHeader("Authorization", token)
+                .addMultiPart(base64MultiPartSpec)
+                .build();
+        
+        imageId = given(requestSpecificationWithAuthWithBase64, positiveResponseSpecification)
+                .post(UPLOAD_IMAGE)
                 .prettyPeek()
                 .then()
                 .extract()
                 .response()
                 .jsonPath()
-                .getString("data.deletehash");
+                .getString("data.id");
     }
+
+    
+    @DisplayName("Get Image")
+
+    @Test
+    void GetImage() {
+        
+        given()
+                .headers("Authorization", token)
+                .expect()
+                .statusCode(200)
+                .when()
+                .get("https://api.imgur.com/3/image/{imageHash}", imageId)
+                .prettyPeek()
+                .then()
+                .extract()
+                .response()
+                .jsonPath()
+                .getString("data.imageId");
+    }
+
+    @DisplayName("Загрузка файла в формате base64")
+
+    @Test
+    void uploadFileTest() {
+        uploadedImageId = given(requestSpecificationWithAuthWithBase64, positiveResponseSpecification)
+                .post(UPLOAD_IMAGE)
+                .prettyPeek()
+                .then()
+                .extract()
+                .response()
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
+    }
+
+ //   по ДЗ №3
+//    @Test
+//    void uploadFileTest() {
+//        uploadedImageId = given()
+//                .headers("Authorization", token)
+//                .multiPart("image", encodedFile)
+//                .expect()
+//                .body("success", is(true))
+//                .body("data.id", is(notNullValue()))
+//                .when()
+//                .post("https://api.imgur.com/3/image")
+//                .prettyPeek()
+//                .then()
+//                .extract()
+//                .response()
+//                .jsonPath()
+//                .getString("data.deletehash");
+//    }
+
+
+
 
     @DisplayName("Загрузка файла в формате base64 без картинки")
 
@@ -87,8 +145,9 @@ public class ImageTests extends BaseTest {
                 .then()
                 .extract()
                 .response()
-                .jsonPath()
-                .getString("");
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
     }
 
     @DisplayName("Загрузка видео в формате картинки base64")
@@ -106,17 +165,16 @@ public class ImageTests extends BaseTest {
                 .then()
                 .extract()
                 .response()
-                .jsonPath()
-                .getString("");
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
     }
 
     @DisplayName("Загрузка файла в формате jpg")
 
     @Test
     void uploadFileImageTest() {
-        uploadedImageId = given()
-                .headers("Authorization", token)
-                .multiPart("image", new File("src/test/resources/test-image.jpg"))
+        uploadedImageId = given(requestSpecificationWithAuthAndMultipartImage)
                 .expect()
                 .statusCode(200)
                 .when()
@@ -124,10 +182,42 @@ public class ImageTests extends BaseTest {
                 .prettyPeek()
                 .then()
                 .extract()
-                .response()
-                .jsonPath()
-                .getString("data.deletehash");
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
+    }
 
+//    к ДЗ №3
+//    @Test
+//    void uploadFileImageTest() {
+//        uploadedImageId = given()
+//                .headers("Authorization", token)
+//                .multiPart("image", new File("src/test/resources/test-image.jpg"))
+//                .expect()
+//                .statusCode(200)
+//                .when()
+//                .post("https://api.imgur.com/3/upload")
+//                .prettyPeek()
+//                .then()
+//                .extract()
+//                .response()
+//                .body()
+//                .as(PostImageResponse.class)
+//                .getData().getDeletehash();
+//
+//    }
+
+    @Test
+    void uploadWithMultiPart() {
+        uploadedImageId =    given(requestSpecificationWithAuthAndMultipartImage)
+                .post("https://api.imgur.com/3/image")
+                .prettyPeek()
+                .then()
+                .extract()
+                .response()
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
     }
 
     @DisplayName("Загрузка видео с форматом картинки")
@@ -146,8 +236,9 @@ public class ImageTests extends BaseTest {
                 .then()
                 .extract()
                 .response()
-                .jsonPath()
-                .getString("");
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
 
     }
 
@@ -166,11 +257,11 @@ public class ImageTests extends BaseTest {
                 .statusCode(400)
                 .extract()
                 .response()
-                .jsonPath()
-                .getString("");
+                .body()
+                .as(PostImageResponse.class)
+                .getData().getDeletehash();
 
     }
-
 
 //    Эти тесты пока не работают у меня, не понимаю как сделать, чтоб заработали
 
@@ -189,8 +280,9 @@ public class ImageTests extends BaseTest {
 //                .then()
 //                .extract()
 //                .response()
-//                .jsonPath()
-//                .getString("");
+//                .body()
+//                .as(PostImageResponse.class)
+//                .getData().getDeletehash();
 //
 //    }
 //
@@ -209,8 +301,9 @@ public class ImageTests extends BaseTest {
 //                .then()
 //                .extract()
 //                .response()
-//                .jsonPath()
-//                .getString("");
+//                .body()
+//                .as(PostImageResponse.class)
+//                .getData().getDeletehash();
 //
 //    }
 
@@ -232,8 +325,6 @@ public class ImageTests extends BaseTest {
 //
 //    }
 
-
-
     @AfterEach
     void tearDown() {
         given()
@@ -244,16 +335,4 @@ public class ImageTests extends BaseTest {
                 .then()
                 .statusCode(200);
     }
-
-    private byte[] getFileContent() {
-        byte[] byteArray = new byte[0];
-        try {
-            byteArray = FileUtils.readFileToByteArray(new File(PATH_TO_IMAGE));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return byteArray;
-    }
-
-
 }

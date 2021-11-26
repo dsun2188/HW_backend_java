@@ -52,4 +52,14 @@ public class CategoryTests {
         assertThat(response.body().getTitle(), equalTo(CategoryType.FOOD.getTitle()));
         assertThat(response.body().getId(), equalTo(id));
     }
+
+//    @DisplayName("Получение категории по невалидному id")
+//    @Test
+//    void getCategoryByFailIdTest() throws IOException {
+//        Response<Category> response = categoryService.getCategory(4).execute();
+//
+//        PrettyLogger.DEFAULT.log(response.toString());
+//        assertThat(response.code(), equalTo(404));
+//        assertThat(response.isSuccessful(), equalTo(false));
+//    }
 }

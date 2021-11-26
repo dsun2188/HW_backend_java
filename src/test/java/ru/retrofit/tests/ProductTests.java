@@ -3,6 +3,7 @@ package ru.retrofit.tests;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -42,6 +43,7 @@ public class ProductTests {
                 .withCategoryTitle(CategoryType.FOOD.getTitle());
     }
 
+    @DisplayName("Создание продукта с валидными данными")
     @Test
     void postProductTest() throws IOException {
 //        Integer countProductsBefore = DbUtils.countProducts(productsMapper);
@@ -56,14 +58,18 @@ public class ProductTests {
 
 
 
+//    @DisplayName("Создание продукта с непустым id")
 //    @Test
-//    void getProductIdTest() throws IOException {
-//         getProduct = ArrayList<Product>;
+//    void postProductWithIdTest() throws IOException {
+//        product = new Product()
+//                .withId(1);
+//        Response<Product> response = productService.createProduct(product).execute();
 //
-//        Response<Product> response = productService
-//                .getProduct(id)
-//                .execute();
+//        PrettyLogger.DEFAULT.log(response.toString());
+//        assertThat(response.code(), equalTo(400));
+//        assertThat(response.isSuccessful(), equalTo(false));
 //    }
+
 
 //    @AfterEach
 //    void tearDown() throws IOException {

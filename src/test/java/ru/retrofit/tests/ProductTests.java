@@ -58,17 +58,88 @@ public class ProductTests {
 
 
 
-//    @DisplayName("Создание продукта с непустым id")
-//    @Test
-//    void postProductWithIdTest() throws IOException {
-//        product = new Product()
-//                .withId(1);
-//        Response<Product> response = productService.createProduct(product).execute();
-//
-//        PrettyLogger.DEFAULT.log(response.toString());
-//        assertThat(response.code(), equalTo(400));
-//        assertThat(response.isSuccessful(), equalTo(false));
-//    }
+    @DisplayName("Создание продукта с непустым id")
+    @Test
+    void postProductWithIdTest() throws IOException {
+        product = new Product()
+                .withId(1);
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
+    @DisplayName("Создание продукта с пустым заголовком")
+    @Test
+    void postProductWithNullTitleTest() throws IOException {
+        product = new Product()
+                .withTitle(null)
+                .withPrice((int) ((Math.random() + 1) * 100))
+                .withCategoryTitle(CategoryType.FOOD.getTitle());
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
+    @DisplayName("Создание продукта с пустой ценой")
+    @Test
+    void postProductWithNullPriceTest() throws IOException {
+        product = new Product()
+                .withTitle(faker.food().dish())
+                .withPrice(null)
+                .withCategoryTitle(CategoryType.FOOD.getTitle());
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
+    @DisplayName("Создание продукта с пустой категорией")
+    @Test
+    void postProductWithNullCategoryTitleTest() throws IOException {
+        product = new Product()
+                .withTitle(faker.food().dish())
+                .withPrice((int) ((Math.random() + 1) * 100))
+                .withCategoryTitle(null);
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
+    @DisplayName("Создание продукта с нулевой ценой")
+    @Test
+    void postProductWithZeroPriceTest() throws IOException {
+        product = new Product()
+                .withTitle(faker.food().dish())
+                .withPrice(0)
+                .withCategoryTitle(CategoryType.FOOD.getTitle());
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
+    @DisplayName("Создание продукта с отрицательной ценой")
+    @Test
+    void postProductWithNegativePriceTest() throws IOException {
+        product = new Product()
+                .withTitle(faker.food().dish())
+                .withPrice(-1)
+                .withCategoryTitle(CategoryType.FOOD.getTitle());
+        Response<Product> response = productService.createProduct(product).execute();
+
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(400));
+        assertThat(response.isSuccessful(), equalTo(false));
+    }
+
 
 
 //    @AfterEach

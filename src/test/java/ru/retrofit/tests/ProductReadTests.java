@@ -1,18 +1,18 @@
 package ru.retrofit.tests;
 
 import com.github.javafaker.Faker;
-import db.dao.ProductsMapper;
-import db.model.Products;
-import dto.Product;
-import enums.CategoryType;
 import okhttp3.ResponseBody;
 import org.junit.jupiter.api.*;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import service.ProductService;
-import utils.DbUtils;
-import utils.PrettyLogger;
-import utils.RetrofitUtils;
+import ru.retrofit.db.dao.ProductsMapper;
+import ru.retrofit.db.model.Products;
+import ru.retrofit.dto.Product;
+import ru.retrofit.enums.CategoryType;
+import ru.retrofit.service.ProductService;
+import ru.retrofit.utils.DbUtils;
+import ru.retrofit.utils.PrettyLogger;
+import ru.retrofit.utils.RetrofitUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

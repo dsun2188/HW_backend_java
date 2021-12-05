@@ -1,18 +1,15 @@
 package ru.retrofit.tests;
 
 import com.github.javafaker.Faker;
-import db.dao.ProductsMapper;
-import db.model.Products;
-import dto.Product;
-import enums.CategoryType;
 import okhttp3.ResponseBody;
 import org.junit.jupiter.api.*;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import service.ProductService;
-import utils.DbUtils;
-import utils.PrettyLogger;
-import utils.RetrofitUtils;
+import ru.retrofit.dto.Product;
+import ru.retrofit.enums.CategoryType;
+import ru.retrofit.service.ProductService;
+import ru.retrofit.utils.PrettyLogger;
+import ru.retrofit.utils.RetrofitUtils;
 
 import java.io.IOException;
 
@@ -20,7 +17,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class ProductUpdateTests {
-    static ProductsMapper productsMapper;
     static Retrofit client;
     static ProductService productService;
     Faker faker = new Faker();
@@ -29,7 +25,6 @@ public class ProductUpdateTests {
 
     @BeforeAll
     static void beforeAll() {
-        productsMapper = DbUtils.getProductsMapper();
         client = RetrofitUtils.getRetrofit();
         productService = client.create(ProductService.class);
     }
@@ -47,19 +42,20 @@ public class ProductUpdateTests {
     @DisplayName("Модификация продукта валидными данными")
     @Test
     void putProductTest() throws IOException {
-        Products dbProduct = new Products();
-        dbProduct.setId((long)id);
-        dbProduct.setTitle(faker.food().dish());
-        dbProduct.setPrice((int) ((Math.random() + 1) * 100));
-        dbProduct.setCategory_id((long)CategoryType.FURNITURE.getId());
+        product.setId(id);
+        product.setTitle(faker.food().dish());
+        product.setPrice((int) ((Math.random() + 1) * 100));
+        product.setCategoryTitle(CategoryType.FURNITURE.getTitle());
 
-        productsMapper.updateByPrimaryKey(dbProduct);
+        Response<Product> response = productService.updateProduct(product).execute();
 
-        Products updatedDbProduct = productsMapper.selectByPrimaryKey((long)id);
-        assertThat(updatedDbProduct.getId(), equalTo((long)id));
-        assertThat(updatedDbProduct.getTitle(), equalTo(dbProduct.getTitle()));
-        assertThat(updatedDbProduct.getPrice(), equalTo(dbProduct.getPrice()));
-        assertThat(updatedDbProduct.getCategory_id(), equalTo(dbProduct.getCategory_id()));
+        PrettyLogger.DEFAULT.log(response.toString());
+        assertThat(response.code(), equalTo(200));
+        assertThat(response.isSuccessful(), equalTo(true));
+        assertThat(response.body().getId(), equalTo(id));
+        assertThat(response.body().getTitle(), equalTo(product.getTitle()));
+        assertThat(response.body().getPrice(), equalTo(product.getPrice()));
+        assertThat(response.body().getCategoryTitle(), equalTo(product.getCategoryTitle()));
     }
 
     @DisplayName("Модификация продукта с невалидным id")

@@ -10,6 +10,7 @@ import retrofit2.Retrofit;
 import ru.retrofit.dto.Product;
 import ru.retrofit.enums.CategoryType;
 import ru.retrofit.service.ProductService;
+import ru.retrofit.utils.PrettyLogger;
 import ru.retrofit.utils.RetrofitUtils;
 
 import java.io.IOException;

@@ -1,17 +1,20 @@
 package ru.retrofit.tests;
 
-import db.model.Categories;
-import dto.Category;
-import enums.CategoryType;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import service.CategoryService;
-import utils.DbUtils;
-import utils.PrettyLogger;
-import utils.RetrofitUtils;
+import ru.retrofit.db.model.Categories;
+import ru.retrofit.dto.Category;
+import ru.retrofit.dto.Product;
+import ru.retrofit.enums.CategoryType;
+import ru.retrofit.service.CategoryService;
+import ru.retrofit.utils.DbUtils;
+import ru.retrofit.utils.RetrofitUtils;
+//import utils.PrettyLogger;
 
 import java.io.IOException;
 
@@ -62,7 +65,7 @@ void getCategoryByIdTest() throws IOException {
     Categories category = DbUtils.getCategoriesMapper().selectByPrimaryKey(id);
     Response<Category> response = categoryService.getCategory(id).execute();
 
-    PrettyLogger.DEFAULT.log(response.toString());
+  //  PrettyLogger.DEFAULT.log(response.toString());
 
     assertThat(category.getTitle(), equalTo(CategoryType.FOOD.getTitle()));
 
@@ -79,7 +82,7 @@ void getCategoryByIdTest() throws IOException {
     void getCategoryByFailIdTest() throws IOException {
         Response<Category> response = categoryService.getCategory(4).execute();
 
-        PrettyLogger.DEFAULT.log(response.toString());
+     //   PrettyLogger.DEFAULT.log(response.toString());
         assertThat(response.code(), equalTo(404));
         assertThat(response.isSuccessful(), equalTo(false));
     }

@@ -19,16 +19,16 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="ru.annachemic.db.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="ru.retrofit.db.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="ru.annachemic.db.mapper.xml" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="ru.retrofit.db.mapper.xml" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="ru.annachemic.db.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="ru.retrofit.db.dao"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

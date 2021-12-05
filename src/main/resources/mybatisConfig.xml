@@ -16,7 +16,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="ru/annachemic/db/mapper/xml/CategoriesMapper.xml"/>
-        <mapper resource="ru/annachemic/db/mapper/xml/ProductsMapper.xml"/>
+        <mapper resource="ru/retrofit/db/mapper/xml/CategoriesMapper.xml"/>
+        <mapper resource="ru/retrofit/db/mapper/xml/ProductsMapper.xml"/>
     </mappers>
 </configuration>
